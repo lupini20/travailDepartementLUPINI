@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "travailleurdepartementlupini": {
+      "hosting": {
+        "lupinimedi-app": [
+          "travailleurdepartementlupini"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "travailleurdepartementlupini"
+  }
+}

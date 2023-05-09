@@ -1,0 +1,32 @@
+<p>travailleur-details </p>
+
+
+
+<mat-card *ngIf="(travailleur$ | async) as travailleur">
+    
+    <mat-card-content>
+      <p>Prénom : {{travailleur.firstName}}</p>
+      <p>Nom : {{travailleur.lastName}}</p>
+      
+      
+
+      <p>Tâche : {{travailleur.tache}}</p>
+     
+      <p>Status : {{travailleur.status}}</p>
+      <p>Tél : {{travailleur.phoneNumber}}</p>
+      <p>Email : {{travailleur.email}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="goBack()"><mat-icon>arrow_back</mat-icon>Retour</button>
+    </mat-card-actions>
+  </mat-card>
+  
+
+
+
+
+
+
+
+
+

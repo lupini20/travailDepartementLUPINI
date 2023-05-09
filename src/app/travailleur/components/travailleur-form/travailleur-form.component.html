@@ -1,0 +1,74 @@
+<!--<p>travailleur-form works!</p>-->
+
+<h2 mat-dialog-title>{{title}}</h2>
+
+<form [formGroup]="travailleurForm" (ngSubmit)="onSubmit()">
+  <div class="form">
+    <mat-form-field appearance="outline">
+      <mat-label>identifiant</mat-label>
+      <input matInput formControlName="id" readonly />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Prénom</mat-label>
+      <input matInput formControlName="firstName" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nom</mat-label>
+      <input matInput formControlName="lastName" />
+    </mat-form-field>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Département</mat-label>
+        <mat-select formControlName="departementId" required>
+          <mat-option *ngFor="let departement of departements" [value]="departement.id">
+            {{ departement.nom }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="travailleurForm.controls['departementId'].invalid">Le département est requis.</mat-error>
+      </mat-form-field>
+    </div>
+  
+    
+
+    <mat-form-field appearance="outline">
+      <mat-label>Tache</mat-label>
+      <input matInput formControlName="tache" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Statut</mat-label>
+      <mat-select formControlName="status">
+        <mat-option *ngFor="let statut of status" [value]="statut">{{ statut }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Tél</mat-label>
+      <input matInput formControlName="phoneNumber" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Date de naissance</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" mat-dialog-close>Annuler</button>
+    <button mat-raised-button type="submit" cdkFocusInitial color="warn" [disabled]="!travailleurForm.valid || !travailleurForm.dirty">{{submitBtnName}}</button>
+  </mat-dialog-actions>
+
+
+</form>
+
+
